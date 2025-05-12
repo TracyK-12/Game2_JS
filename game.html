@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux de Calcul</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="game.css">
+   
+</head>
+<body>
+
+    <h1>Choisissez un jeu</h1>
+
+    <div class="container">
+        <div class="game-box" onclick="openModal('ageGame')"><i class="fa-solid fa-calculator" style="color: #8dc80e;"></i> <span>Calcul de l'âge</span></div>
+        <div class="game-box" onclick="openModal('yearGame')"><i class="fa-solid fa-cake-candles" style="color: #8dc80e;"></i><span>Découvrir l'année de naissance</span></div>
+        <div class="game-box" onclick="openModal('multiplicationGame')"> <i class="fa-solid fa-xmark" style="color: #8dc80e;"></i> <span>Multiplication Magique</span></div>
+        <div class="game-box" onclick="fetchTechWord()"><i class="fas fa-keyboard" style="color: #8dc80e;"></i> <span>Jeu de Mots Tech</span></div>
+            
+           
+
+        
+    </div>
+
+    <!-- Overlay pour le fond sombre -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MODAL : Calcul de l'âge -->
+    <div id="ageGame" class="modal">
+        <h2>Calcul de l'âge</h2>
+        <label for="Anneeactuelle">Année actuelle :</label>
+        <input type="number" id="Anneeactuelle">
+        <label for="AnneeNaissance">Année de naissance :</label>
+        <input type="number" id="AnneeNaissance">
+        <button onclick="calculAge()">Calculer</button>
+        <p id="ageResult"></p>
+        <button class="close-button" onclick="closeModal()">Fermer</button>
+    </div>
+
+    <!-- MODAL : Découvrir l'année de naissance -->
+    <div id="yearGame" class="modal">
+        <h2>Découvrir l'année de naissance</h2>
+        <label for="userAge">Votre âge :</label>
+        <input type="number" id="userAge">
+        <button onclick="discoverYear()">Découvrir</button>
+        <p id="yearResult"></p>
+        <button class="close-button" onclick="closeModal()">Fermer</button>
+    </div>
+
+    <!-- MODAL : Multiplication Magique -->
+    <div id="multiplicationGame" class="modal">
+        <h2>Multiplication Magique</h2>
+        <label for="num1">Nombre 1 :</label>
+        <input type="number" id="num1">
+        <label for="num2">Nombre 2 :</label>
+        <input type="number" id="num2">
+        <button onclick="calculateMultiplication()">Multiplier</button>
+        <p id="multiplicationResult"></p>
+        <button class="close-button" onclick="closeModal()">Fermer</button>
+    </div>
+    <!-- MODAL : Jeu de mots tech -->
+    <div id="wordGame" class="modal">
+        <h2>Jeu de Mots Tech</h2>
+        <p>Devinez le mot informatique caché :</p>
+        <h3 id="scrambledWord">Chargement...</h3> <!-- Mot mélangé affiché ici -->
+        
+        <input type="text" id="userGuess" placeholder="Votre réponse">
+        <button onclick="checkWord()">Vérifier</button>
+        
+        <p id="wordResult"></p>
+        <button class="close-button" onclick="closeModal()">Fermer</button>
+    </div>
+     
+    <script src="game.js"></script>
+
+
+</body>
+</html>
